@@ -1,0 +1,4 @@
+- check if we can create a subpopulation we different types of individuals.
+  Example: a subpopulation with three individuals, one float and two integer. 
+  How to: override the method populate(state,thread) from Subpopulation in our
+   GEOSubPopulation and generate correct species.

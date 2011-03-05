@@ -1,0 +1,21 @@
+The MAVEN 'test' fase execute all junit test classes inside 'src/test/' folder.
+This tests try to instrument classes from the project 'jevolutest-problems'.
+
+We created the tests this way because the 'instrument tool' (that this project uses -
+'jevolutest-instrumenter' ) must be capable to instrument a class that is not in
+its own classpath. So we want classes outside the classpath of the this project 
+('jevolutest-problems').
+
+During the MAVEN 'test' fase there is a plugin called 'maven-dependecy-plugin'
+(look the pom.xml file) that copies the JAR of the project 'jevolutest-problems'
+that is in the repository to the 'lib/' folder (inside the 'jevolutest-ecj-geo' project).
+
+With this JAR (currently called 'jevolutest-problems-0.0.1-SNAPSHOT.jar') we tell the
+test classes that they should load this JAR to find the classes that will be instrumented.
+This is done by the class 'br.unicamp.ic.TestResource.java' inside the 'src/test/java' folder.
+
+------------------------------------------------------------------------------------------------
+IF YOU EVER UPDATE THE 'jevolutest-problems' PROJECT (NAME OR VERSION) A NEW JAR WITH OTHER NAME
+WILL BE EXPORTED TO THE LOCAL REPOSITORY AND THE TESTS OF THIS PROJECT ('jevolutest-ecj-geo')
+WILL FAIL UNTIL YOU CORRECT THE ATTRIBUTE 'LOCAL' (br.unicamp.ic.TestResource.LOCAL). 
+------------------------------------------------------------------------------------------------
