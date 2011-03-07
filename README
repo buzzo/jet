@@ -1,0 +1,14 @@
+JET - Java Evolutionary Test
+
+
+This is a MAVEN 3 project.
+
+Before anything you must install some 3th party JARs inside your
+local MAVEN repository. Follow the steps bellow:
+
+1 - Run the commands bellow:
+	
+	mvn install:install-file -Dfile=lib/soot-2.4.0.jar -DgroupId=ca.mcgill.sable -DartifactId=soot -Dversion=2.4.0 -Dpackaging=jar
+	mvn install:install-file -Dfile=lib/soot-2.4.0-sources.jar -DgroupId=ca.mcgill.sable -DartifactId=soot -Dversion=2.4.0 -Dpackaging=jar -Dclassifier=sources
+	mvn install:install-file -Dfile=lib/ecj19.jar -DgroupId=edu.gmu.cs -DartifactId=ecj -Dversion=19 -Dpackaging=jar
+	mvn install:install-file -Dfile=lib/ecj19-sources.jar -DgroupId=edu.gmu.cs -DartifactId=ecj -Dversion=19 -Dpackaging=jar -Dclassifier=sources
